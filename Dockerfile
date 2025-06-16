@@ -6,7 +6,7 @@ RUN echo 'deb-src http://deb.debian.org/debian/ trixie main non-free-firmware no
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends --no-install-suggests --no-upgrade \
-    dpkg-dev build-essential
+    build-essential
 
 RUN apt-get build-dep -y bluez-obexd
 
