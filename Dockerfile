@@ -8,15 +8,15 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests --no-upgrade \
     dpkg-dev build-essential
 
+RUN apt-get build-dep -y bluez-obexd
+
 WORKDIR /app/
 
-COPY patches/0001.patch /app/
-
-RUN apt-get build-dep -y bluez-obexd
+COPY patches/ /app/patches
 
 RUN apt-get source bluez-obexd=5.82 \
     && cd /app/bluez-5.82/ \
-    && patch ./debian/rules < /app/0001.patch \
+    && for i in /app/patches/*.patch; do patch -p1 < "$i"; done \
     && DEB_BUILD_OPTIONS=noautodbgsym dpkg-buildpackage -us -uc -B \
     && rm -rf /app/bluez-5.82/ \
     /app/bluez_5.82-1.1.debian.tar.xz \

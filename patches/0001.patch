@@ -1,5 +1,5 @@
 --- ./debian/rules	2025-06-16 16:01:27.478961797 +0700
-+++ ./debian/rules-new	2025-06-16 16:10:43.396229737 +0700
++++ ./debian/rules	2025-06-16 16:10:43.396229737 +0700
 @@ -35,9 +35,9 @@
  DEB_CFLAGS_MAINT_APPEND += -DFIRMWARE_DIR=/lib/firmware
  export DEB_CFLAGS_MAINT_APPEND
