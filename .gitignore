@@ -1,0 +1,9 @@
+artifacts/*
+config/*
+
+KDEB_PKGVERSION
+
+.env
+
+!config
+!.gitkeep
